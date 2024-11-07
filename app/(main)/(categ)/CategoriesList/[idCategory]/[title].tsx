@@ -8,7 +8,7 @@ export default function Begin() {
   const { idCategory, title } = useLocalSearchParams()
 
   const list = data.products.filter(item => item.idCategory.toString() === idCategory)
-  console.log(list)
+  
   return (
     <>
         <Stack.Screen options={{title: title.toString()}}/>
