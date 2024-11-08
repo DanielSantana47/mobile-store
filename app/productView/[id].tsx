@@ -1,11 +1,12 @@
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { getProductById } from '../../services/product';
 
 export default function ProductView() {
 
-    const {img, title, description, price} = useLocalSearchParams()
+    const { id } = useLocalSearchParams()
 
-    const decodeUrl = decodeURIComponent(img.toString())
+    const product = getProductById(parseInt(id.toString()))
     
     const handleBuyButton = ()=> {
       alert('compra feita!')
@@ -16,11 +17,11 @@ export default function ProductView() {
             <Stack.Screen options={{headerShown: true}}/>
             
                 <View style={styles.container}>
-                    <Image source={{uri: decodeUrl}} resizeMode='cover' style={styles.image}/>
-                    <Text style={styles.title}>{title}</Text>
-                    <Text style={styles.desc}>{description}</Text>
+                    <Image source={{uri: product?.image}} resizeMode='cover' style={styles.image}/>
+                    <Text style={styles.title}>{product?.title}</Text>
+                    <Text style={styles.desc}>{product?.description}</Text>
                     <Pressable style={styles.button}>
-                      <Text style={styles.buttonText}>R$ {price}</Text>
+                      <Text style={styles.buttonText}>R$ {product?.price}</Text>
                     </Pressable>
                     <View style={styles.box}>
                       <Pressable style={styles.buy} onPress={handleBuyButton}>

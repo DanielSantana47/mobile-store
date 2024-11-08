@@ -2,18 +2,17 @@ import { router, useNavigation } from "expo-router"
 import { Image, Pressable, StyleSheet, Text, View } from "react-native"
 
 type Props = {
+    id: number,
     img: string,
     title: string,
     description: string,
     price: number
 }
 
-export const Product = ({img, title, description, price}: Props)=> {
-
-  const url = encodeURIComponent(img) as string
+export const Product = ({id, img, title, description, price}: Props)=> {
 
     const handleCLick = ()=> {
-        router.navigate(`productView/${url}/${title}/${description}/${price}`)
+        router.navigate(`productView/${id}`)
     }
     return(
         <Pressable style={styles.container} onPress={handleCLick}>
@@ -32,10 +31,12 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: 20
+      gap: 20,
+      marginBottom: 20
     },
     img: {
-      height: 120,
+      height: 100,
+      width: 100,
       flex: 1,
       borderRadius: 20
     },

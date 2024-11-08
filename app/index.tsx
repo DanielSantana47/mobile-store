@@ -12,7 +12,7 @@ export default function App() {
             <Image source={require('../assets/logo.png')} resizeMode='contain' style={styles.img}/>
             <Text style={styles.title}>Loja do Alien</Text>
             <Text>Aqui você encontra tudo que quiser!</Text>
-            <Link replace href={"Begin"} asChild>
+            <Link replace href={"home"} asChild>
                 <Pressable style={styles.button}>
                     <Text style={styles.buttonText}>Começar as compras</Text>
                 </Pressable>

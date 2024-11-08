@@ -4,8 +4,8 @@ const Screen = ()=> {
     return(
         <Stack screenOptions={{headerShown: false}}>
             <Stack.Screen name="index"/>
-            <Stack.Screen name="(main)"/>
-            <Stack.Screen name="productView/[img]/[title]/[description]/[price]" options={{title:""}}/>
+            <Stack.Screen name="(tabs)" options={{title: 'Products'}}/>
+            <Stack.Screen name="productView/[id]" options={{title:""}}/>
         </Stack>
     )
 }

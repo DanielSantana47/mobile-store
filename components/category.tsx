@@ -4,13 +4,13 @@ import { ImageBackground, Pressable, StyleSheet, Text, View } from "react-native
 type Props = {
     idCategory: number,
     img: string,
-    title?: string
+    title: string
 }
 
 export const Category = ({idCategory, img, title}: Props)=> {
 
     const handleCLick = ()=> {
-        router.navigate(`CategoriesList/${idCategory}/${title}`)
+        router.navigate(`category/${idCategory}`)
     }
     return (
         <Pressable style={styles.container} onPress={handleCLick}>
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: 150,
+        marginBottom: 10
     },
     img: {
       flex: 1,
